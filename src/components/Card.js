@@ -3,6 +3,14 @@ import './Card.css';
 
 
 var Card = ({ frontSide, backSide }) => {
+    componentDidMount() {
+        console.log('componentDidMount');
+    }
+
+    componentDidUpdate(previousProps, previousState) {
+        console.log('componentDidUpdate');
+    }
+
     // State variables
     const [isFront, changeFace] = React.useState(true);
 

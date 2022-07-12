@@ -1,6 +1,7 @@
 import './App.css';
 import CardList from './components/CardList';
 import AppHeader from './components/AppHeader';
+import React, { Component } from 'react';
 
 let cardData = [
   {
@@ -17,16 +18,29 @@ let cardData = [
   }, { frontSide: "45 % 12", backSide: (45 % 12).toString() }
 ];
 
-function App() {
+class App extends Component {
+  //lifecycle methods
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
 
-  return (
-    <div className="App">
-      <AppHeader title="Flash cards" />
-      <CardList cardData={cardData} />
-      <CardList cardData={[{ frontSide: "45 % 6", backSide: (45 % 6).toString() }]} />
-      <CardList cardData={[{ frontSide: "45 % 5", backSide: (45 % 5).toString() }, { frontSide: "The only river flowing to the south in Poland ?", backSide: "Orawa" }]} />
-    </div>
-  );
+  componentDidUpdate(previousProps, previousState) {
+    console.log('componentDidUpdate');
+  }
+
+  componentWillUnmount() {
+  }
+
+  render() {
+    return (
+      <div className="App" >
+        <AppHeader title="Flash cards" />
+        <CardList cardData={cardData} />
+        <CardList cardData={[{ frontSide: "45 % 6", backSide: (45 % 6).toString() }]} />
+        <CardList cardData={[{ frontSide: "45 % 5", backSide: (45 % 5).toString() }, { frontSide: "The only river flowing to the south in Poland ?", backSide: "Orawa" }]} />
+      </div>
+    );
+  }
 }
 
 export default App;
