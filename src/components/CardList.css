@@ -1,6 +1,7 @@
 .card-list-swimline {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     width: 400px;
     margin: 10px auto;
     border: 2px solid black

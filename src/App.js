@@ -1,31 +1,34 @@
 import './App.css';
 import CardList from './components/CardList';
 import AppHeader from './components/AppHeader';
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 
-let cardData = [
-  {
-    frontSide: "9 * 6",
-    backSide: 9 * 6,
-  },
-  {
-    frontSide: "2**16",
-    backSide: 2 ** 16,
-  },
-  {
-    frontSide: "5 * 6",
-    backSide: '30'
-  }, { frontSide: "45 % 12", backSide: (45 % 12).toString() }
-];
+//Class based component
+class App2 extends Component {
+  state = {
+    cards: []
+  }
 
-class App extends Component {
   //lifecycle methods
   componentDidMount() {
+
+    const URL_API = 'https://restcountries.com/v3.1/all'
+    fetch(URL_API)
+      .then(data => data.json())
+      .then(countries => {
+        function getNameAndCapital(country) {
+          return { frontSide: country.name.official, backSide: country.capital ? country.capital[0] : "" }
+        }
+        const cards = countries.map(getNameAndCapital)
+        this.setState({ cards });
+        //console.log(countries.map(getNameAndCapital));
+      });
+
     console.log('componentDidMount');
   }
 
   componentDidUpdate(previousProps, previousState) {
-    console.log('componentDidUpdate');
+    //console.log('componentDidUpdate');
   }
 
   componentWillUnmount() {
@@ -35,12 +38,41 @@ class App extends Component {
     return (
       <div className="App" >
         <AppHeader title="Flash cards" />
-        <CardList cardData={cardData} />
-        <CardList cardData={[{ frontSide: "45 % 6", backSide: (45 % 6).toString() }]} />
-        <CardList cardData={[{ frontSide: "45 % 5", backSide: (45 % 5).toString() }, { frontSide: "The only river flowing to the south in Poland ?", backSide: "Orawa" }]} />
+        <CardList cardData={this.state.cards} />
       </div>
     );
   }
 }
+
+//Function based component
+function App() {
+  const URL_API = 'https://restcountries.com/v3.1/all'
+  const [cards, setCards] = useState([]);
+  //Function callback is called 
+  // * componentDidMount(),
+  // * componentDidUpdate(),
+  // * componentWillUnamount() 
+  useEffect(() => {
+    if (cards.length === 0) {
+      fetch(URL_API)
+        .then(data => data.json())
+        .then(countries => {
+          function getNameAndCapital(country) {
+            return { frontSide: country.name.official, backSide: country.capital ? country.capital[0] : "" }
+          }
+          const cards = countries.map(getNameAndCapital);
+          setCards(cards);
+          console.log(cards)
+        });
+    }
+  },);
+  return (
+    <div className="App" >
+      <AppHeader title="Flash cards" />
+      <CardList cardData={cards} />
+    </div>
+  );
+}
+
 
 export default App;
