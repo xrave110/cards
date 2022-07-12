@@ -1,0 +1,35 @@
+:root {
+    --card-height: 50px;
+
+}
+
+.card {
+    border: 2px solid black;
+    display: inline-block;
+    margin: 10px;
+    padding: 2px;
+    list-style-type: none;
+    width: 30%;
+    flex-wrap: wrap;
+    height: var(--card-height);
+}
+
+.card__front.hidden,
+.card__back.hidden {
+    display: none;
+
+}
+
+.card__front,
+.card__back {
+    width: 100%;
+    line-height: var(--card-height);
+}
+
+.card__front {
+    background-color: rgb(100, 150, 100);
+}
+
+.card__back {
+    background-color: aquamarine;
+}
