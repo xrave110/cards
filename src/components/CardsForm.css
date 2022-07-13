@@ -1,0 +1,45 @@
+.form-container {
+    width: 360px;
+    margin: 10px;
+    border: 5px double darkgreen;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.textfield-container {
+    width: 360px;
+    height: 50px;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.textfield-input {
+    background-color: rgb(1, 112, 34);
+    color: rgb(14, 212, 238);
+    line-height: 30px;
+    font-size: 13px;
+    padding: 5px;
+    border: 3px ridge limegreen;
+    border-radius: 3px;
+    margin: 0 8px;
+}
+
+.textfield-input:hover {
+    background-color: rgb(114, 248, 125);
+    color: rgb(0, 0, 70);
+    border: 3px ridge limegreen;
+}
+
+.submit-button {
+    font-size: 18px;
+    line-height: 30px;
+    padding: 10px;
+    color: lightgreen;
+    background-color: darkgreen;
+    border-radius: 10px;
+    text-shadow: 1px 1px green;
+    padding: 7px 10px;
+    letter-spacing: 1px;
+}

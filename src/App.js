@@ -2,6 +2,7 @@ import './App.css';
 import CardList from './components/CardList';
 import AppHeader from './components/AppHeader';
 import React, { Component, useState, useEffect } from 'react';
+import CardsForm from "./components/CardsForm.js";
 
 //Class based component
 class App2 extends Component {
@@ -66,9 +67,11 @@ function App() {
         });
     }
   },);
+  console.log(cards);
   return (
     <div className="App" >
       <AppHeader title="Flash cards" />
+      <CardsForm />
       <CardList cardData={cards} />
     </div>
   );

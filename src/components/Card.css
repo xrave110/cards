@@ -1,13 +1,13 @@
 :root {
     --card-height: 60px;
+    --card-width: 100px;
+    --card-font-size: 16px;
 }
 
 .card {
     border: 1px solid black;
-    display: inline-block;
     margin: 10px;
     padding: 1px;
-    list-style-type: none;
     width: 175px;
     cursor: pointer;
     user-select: none;

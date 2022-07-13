@@ -44,7 +44,7 @@ class Card2 extends React.Component {
 const Card = ({ frontSide, backSide }) => {
     let [isFront, setIsFront] = useState(true);
     // useEffect(() => {
-    //     console.log('componentDidMount', frontSide);
+    //     //console.log('componentDidMount', frontSide);
     //     console.log('componentDidUpdate', frontSide);
     // });
     // State variables
